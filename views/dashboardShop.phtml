@@ -1,0 +1,106 @@
+<h1>Gestion de la Boutique</h1>
+<!-- Bouton pour ajouter une ligne au tableau -->
+<button type="button" id="newEntry" >Ajouter un produit</button>
+<!-- Tableau de présentation -->
+<table id="dashboardTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Quantité en stock</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Image 1</th>
+                <th>Image 2</th>
+                <th>Image 3</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($allProducts as $product): ?>
+                <tr>
+                    <td> <?= htmlspecialchars($product['name']) ?> </td>
+                    <td> <?= htmlspecialchars($product['type']) ?> </td>
+                    <td> <?= htmlspecialchars($product['quantityInStock']) ?> </td>
+                    <td> <?= htmlspecialchars($product['price']) ?>€</td>
+                    <td> <?= htmlspecialchars($product['description']) ?> </td>
+                    <td> <img src="<?= htmlspecialchars($product['src'])?>" alt ="<?= htmlspecialchars($product['alt'])?>"> </td>
+                    <td> <img src="<?= htmlspecialchars($product['src2'])?>" alt ="<?= htmlspecialchars($product['alt2'])?>"> </td>
+                    <td> <img src="<?= htmlspecialchars($product['src3'])?>" alt ="<?= htmlspecialchars($product['alt3'])?>"> </td>
+                    <td><button class="edit" data-id="<?= $product['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button type ="button" class ="delete" data-id="<?= $product['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+</table>
+
+<!-- Formulaire pour ajouter ou modifier-->
+
+    <form class="hide" id="form" data-edit="" method="post" enctype="multipart/form-data">
+       <fieldset>
+           <legend><h2><?= isset($_GET['id']) ? "Modifier la fiche produit" : "Ajouter un produit" ?></h2></legend>
+            <div class="hide">
+                <label for="id">ID</label>
+                <input type="text" name ="id" value ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['id'] ) : "" ?>">
+            </div>
+ 
+            <label for="name">Nom</label>
+            <input name ="name" id="name" type="text" value ="<?= isset($_GET['id']) ?  htmlspecialchars($editProduct['name']) : "" ?>">
+
+            <label for="type">Type</label>
+            <select id="type" name="type">
+                <option></option>
+                <?php foreach($allTypes as $type): ?>
+                	<option value ="<?= htmlspecialchars( $type['id']) ?>"> <?= htmlspecialchars( $type['name']) ?>
+                	</option>
+                <?php endforeach; ?>
+            </select>
+
+            <label for="album">Album (optionnel)</label>
+            <select id="album" name="album">
+                <option></option>
+                <?php foreach($allAlbums as $album): ?>
+                	<option value ="<?= htmlspecialchars( $album['id']) ?>"> <?= htmlspecialchars( $album['title']) ?>
+                	</option>
+                <?php endforeach; ?>
+            </select>
+
+            <label for="quantity">Quantité en stock</label>
+            <input name ="quantity" id="quantity" type="number" value ="<?= isset($_GET['id']) ?  htmlspecialchars($editProduct['quantityInStock']) : "" ?>">
+
+            <label for="price">Prix</label>
+            <input name ="price" id="price" type="number" value ="<?= isset($_GET['id']) ?  htmlspecialchars($editProduct['price']) : "" ?>">
+    
+            <label for="image">Image 1</label>
+            <input type="file" id="image" name="image">
+                <img src="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['src']) : "" ?>" alt ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['alt']) : "" ?>">
+                
+            <label for="alt">Description de l'image 1</label>
+            <input id="alt" name ="alt" type="text" value ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['alt']) : "" ?>">
+
+            <label for="image2">Image 2</label>
+            <input type="file" id="image2" name="image2">
+                <img src="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['src2']) : "" ?>" alt ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['alt2']) : "" ?>">
+                
+            <label for="alt2">Description de l'image 2</label>
+            <input id="alt2" name ="alt2" type="text" value ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['alt2']) : "" ?>">
+
+            <label for="image3">Image 3</label>
+            <input type="file" id="image3" name="image3">
+                <img src="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['src3']) : "" ?>" alt ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['alt3']) : "" ?>">
+                
+            <label for="alt3">Description de l'image 3</label>
+            <input id="alt3" name ="alt3" type="text" value ="<?= isset($_GET['id']) ? htmlspecialchars($editProduct['alt3']) : "" ?>">    
+
+            <label for="text">Texte</label>
+            <textarea id="text" name="text" rows="30" cols="70"><?= (isset($_GET['id'])) ? htmlspecialchars($editProduct['description']) : "" ?></textarea>
+        </fieldset>
+
+    <!-- <button type="button" id="a ddEdit" >Modifier le Plat</button> -->
+    
+    <button type="button" id="formButton" ><?= isset($_GET['id']) ? "Modifier" : "Ajouter" ?></button>
+    <button type="button" id="cancelFormButton" >Annuler</button>
+    
+    </form>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Safe in the Rain Records - Dashboard">
+		<title>Safe in the Rain Records - Dashboard</title>
+
+        <script src="https://cdn.tiny.cloud/1/7fhmzwym6zp5o49d3vfctke28xfnmh7pc4a8igti1zwqnktx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css">
+
+		<link rel="stylesheet" href="assets/css/dashboard.css">
+	</head>
+	<body>
+		<main>
+            <section class="management">
+                <!-- nav sur le côté -->
+                <nav>
+                    <ul>
+                        <a id ="dashboardArtists" href=""><li><i class="fas fa-microphone-alt"></i> Artistes</li></a>
+                        <a id ="dashboardAlbums" href=""><li><i class="fas fa-record-vinyl"></i> Albums</li></a>
+                        <a id="dashboardNews" href=""><li><i class="far fa-newspaper"></i> News</li></a>
+                        <a id ="dashboardContact" href=""><li><i class="far fa-envelope"></i>  Contact</li></a>
+                        <a id ="dashboardShop" href=""><li><i class="fas fa-store"></i> Shop</li></a>
+                        <a id ="dashboardDeco" href="index.php?page=admin&action=deco"><li><i class="fas fa-sign-in-alt"></i> Déconnexion</li></a>
+                    </ul>
+                </nav>
+                <!-- code principal de la page -->
+                <section id="dashboard" class="dashboard">
+                    <div class="presentation">
+                        <img src="assets\img\logos\logo_SITR_transparent.png" alt="Logo bandeau de Safe in the Rain records">
+                        <h1>Bonjour <?= $_SESSION['admin'] ?></h1>
+                        <p>Il y a actuellement <strong><?= $totalArtists['number'] ?> artistes</strong> et <strong> <?= $totalAlbums['number'] ?> albums </strong> publiés sur le label.</p>
+                    </div>
+                </section>
+            </section>
+		</main>
+		<script src="assets/js/dashboard.js"></script>
+	</body>
+	
+</html>

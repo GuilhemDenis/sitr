@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Safe in the Rain Records">
+	<title>Safe in the Rain Records</title>
+	<script src="https://cdn.tiny.cloud/1/7fhmzwym6zp5o49d3vfctke28xfnmh7pc4a8igti1zwqnktx/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css">
+	<link href="http://fonts.cdnfonts.com/css/milocha" rel="stylesheet">
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <!-- code pour le header -->
+	<header>
+		<div class="logo">
+			<a href="home"><img src="assets\img\logos\bandeau1.jpg" alt="Logo bandeau de Safe in the Rain Records"></a>
+			<i class="fas fa-bars burger"></i>
+		</div>
+		<nav id="nav">
+			<ul>
+				<li><a href="home" title="Page accueil">Accueil</a></li>
+				<li><a href="catalogue" title="Catalogue">Catalogue</a></li>
+				<li><a href="artistes" title="Tous les artistes">Artistes</a></li>
+				<li><a href="news" title="Toutes les news">News</a></li>
+				<li><a href="contact" title="Page contact">Contact</a></li>
+				<li><a href="shop" title="Shop en ligne">Shop</a></li>
+				<!--<li><a href="admin">Admin</a></li>-->
+			</ul>
+			<form action="index.php?page=search" method="post">
+				<input type="search" id="search" name="search">
+				<button> <i class="fas fa-search"></i></button>
+			</form>
+		</nav>
+		<!-- icone pour le panier de shopping -->
+		<i class="fas fa-shopping-cart cart"></i>
+	</header>
+	
+	<main class="container">
+		<!-- code principal de la page -->
+		<?php include $template ?>
+		<section class="panier hide"></section>
+	</main>
+
+    <!-- code pour le footer -->
+	<footer>
+		<a href="https://www.facebook.com/safeintherainrecords/" title="Page Facebook de Safe in the Rain Records"><i class="fab fa-facebook"></i></a>
+		<a href="https://www.instagram.com/safe.in.the.rain.records/" title="Page Instagram de Safe in the Rain Records"><i class="fab fa-instagram"></i></a>
+		<a href="https://safeintherain.bandcamp.com/" title="Page Bandcamp de Safe in the Rain Records"><i class="fab fa-bandcamp"></i></a>
+	</footer>
+	<!-- appel du script js-->
+	<script src="./assets/js/script.js"></script>
+
+</body>
+
+
+
+</html>

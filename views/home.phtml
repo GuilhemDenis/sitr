@@ -1,0 +1,32 @@
+<!-- affichage dynamique des dernières sorties ? -->
+<section class="sorties">
+    <h2>Dernières sorties</h2>
+    <div class="albums">
+        <?php foreach($lastAlbums as $album): ?>
+            <figure>
+                <a href="index.php?page=album&id=<?= htmlspecialchars($album['id']) ?>">
+                    <img src="<?= htmlspecialchars($album['src']) ?>" alt="<?= htmlspecialchars($album['alt']) ?>">
+                    <figcaption>
+                        <?= htmlspecialchars($album['name']) ?> - <?= htmlspecialchars($album['title']) ?>
+                    </figcaption>
+                </a>
+            </figure>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<!-- affichage dynamique des dernières news ? -->
+<section class="lastNews">
+    <h2>Dernières news</h2>
+    <div class="news">
+        <?php foreach($lastNews as $news): ?>
+            <article>
+                <h3><?= htmlspecialchars($news['title']) ?></h3>
+                <p> Publié le <?= htmlspecialchars($news['date']) ?></p>
+                <img src="<?= htmlspecialchars($news['src']) ?>" alt="<?= htmlspecialchars($news['alt']) ?>">
+                <p><?= htmlspecialchars($news['description']) ?></p>
+            </article>
+        <?php endforeach; ?>
+    </div>
+</section>
+

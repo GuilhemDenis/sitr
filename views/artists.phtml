@@ -1,0 +1,15 @@
+<section class="allartists">
+    <h2>Tous les artistes</h2>
+    <div class="artists">
+        <?php foreach($allArtists as $artist): ?>
+            <figure>
+                <a href="index.php?page=artist&id=<?= htmlspecialchars($artist['id']) ?>">
+                    <img src="<?= htmlspecialchars($artist['src']) ?>" alt="<?= htmlspecialchars($artist['alt']) ?>">
+                    <figcaption>
+                     <?= htmlspecialchars($artist['name']) ?>
+                    </figcaption>
+                </a>
+            </figure>
+        <?php endforeach; ?>
+    </div>
+</section>

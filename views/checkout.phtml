@@ -1,0 +1,56 @@
+<section class="checkout">
+
+<form method="post">
+    <p>
+        <label for="title">Titre : </label>
+        <input name ="title" id="title" type="text" value ="<?= isset($_GET['id']) ?  htmlspecialchars($editAlbum['title']) : "" ?>">
+    </p>
+
+    <p>
+        <label for="firstname">Prénom : </label>
+        <input name ="firstname" id="firstname" type="text">
+    </p>
+
+    <p>
+        <label for="lastname">Nom : </label>
+        <input name ="lastname" id="lastname" type="text">
+    </p>
+
+    <p>
+        <label for="email">Adresse Email : </label>
+        <input name ="email" id="email" type="email">
+    </p>
+
+    <p>
+        <label for="tel">Téléphone : </label>
+        <input name ="tel" id="tel" type="tel">
+    </p>
+
+    <p>
+        <label for="address">Adresse : </label>
+        <input name ="address" id="address" type="text">
+    </p>
+
+    <p>
+        <label for="city">Ville : </label>
+        <input name ="city" id="city" type="text">
+    </p>
+
+    <p>
+        <label for="country">Pays : </label>
+        <input name ="country" id="country" type="text">
+    </p>
+
+    <p>
+        <label for="postalcode">Code Postal : </label>
+        <input name ="postalcode" id="postalcode" type="text">
+    </p>
+
+
+
+    
+    <button type="button" ><?= isset($_GET['id']) ? "Modifier" : "Ajouter" ?></button>
+    
+    </form>
+
+<section>

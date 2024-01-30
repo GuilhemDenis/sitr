@@ -1,0 +1,13 @@
+<section class="allalbums">
+    <h2>Toutes les news</h2>
+    <div class="news">
+        <?php foreach($allNews as $news): ?>
+            <article>
+                <h3><?= htmlspecialchars($news['title']) ?></h3>
+                <p> Publié le <?= htmlspecialchars($news['date']) ?></p>
+                <img src="<?= htmlspecialchars($news['src']) ?>" alt="<?= htmlspecialchars($news['alt']) ?>">
+                <p><?= htmlspecialchars($news['description']) ?></p>
+            </article>
+        <?php endforeach; ?>
+    </div>
+</section>

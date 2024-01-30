@@ -1,0 +1,94 @@
+<h1>Gestion des News</h1>
+<!-- Bouton pour ajouter une ligne au tableau -->
+<button type="button" id="newEntry" >Ajouter une news</button>
+<!-- Tableau de présentation -->
+<table id="dashboardTable">
+    
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Artiste</th>
+                <th>Date de publication</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($newsTable as $article): ?>
+                <tr>
+                    <td> <?= htmlspecialchars($article['title']) ?> </td>
+                    <td> <?= htmlspecialchars($article['name']) ?> </td>
+                    <td> <?= htmlspecialchars($article['date']) ?> </td>
+                    <td> <?= htmlspecialchars($article['description']) ?> </td>
+                    <td> <img src="<?= htmlspecialchars($article['src'])?>" alt ="<?= htmlspecialchars($article['alt'])?>"> </td>
+                    <td><button class="edit" data-id="<?= $article['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button type ="button" class ="delete" data-id="<?= $article['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+</table>
+
+
+
+<!-- Formulaire pour ajouter ou modifier-->
+
+    <form class="hide" id="form" data-edit="" method="post" enctype="multipart/form-data">
+       <fieldset>
+           <legend><h2><?= isset($_GET['id']) ? "Modifier la news" : "Publier une news" ?></h2></legend>
+            <div class="hide">
+                <label for="id">ID</label>
+                <input type="text" name ="id" value ="<?= isset($_GET['id']) ? htmlspecialchars($editNews['id'] ) : "" ?>">
+            </div>
+
+            <p>
+                <label for="title">Titre :</label>
+                <input name ="title" id="title" type="text" value ="<?= isset($_GET['id']) ?  htmlspecialchars($editNews['title']) : "" ?>">
+            </p>
+ 
+            <p>
+                <label for="name">Artiste :</label>
+                <select class="name" name="name" id="name">
+                    <?php foreach($allArtists as $artist): ?>
+                        <option value ="<?= htmlspecialchars( $artist['id']) ?>"> <?= htmlspecialchars( $artist['name']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </p>
+
+            <p>
+                <label for="album">Album :</label>
+                <select class="album" name="album" id="album">
+                    <?php foreach($allAlbums as $album): ?>
+                        <option value ="<?= htmlspecialchars( $album['id']) ?>"> <?= htmlspecialchars( $album['title']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </p>
+
+    
+            <p>
+                <label for="image">Image :</label>
+                <input type="file" id="image" name="image">
+                    <img src="<?= isset($_GET['id']) ? htmlspecialchars($editNews['src']) : "" ?>" alt ="<?= isset($_GET['id']) ? htmlspecialchars($editNews['alt']) : "" ?>">
+            </p>
+                
+            <p>
+            <label for="alt">Description de l'image :</label>
+            <input id="alt" name ="alt" type="text" value ="<?= isset($_GET['id']) ? htmlspecialchars($editNews['alt']) : "" ?>">
+            </p>
+
+            <p>
+            <label for="text">Texte :</label>
+            </p>
+            <textarea id="text" name="text" rows="30" cols="70"><?= (isset($_GET['id'])) ? htmlspecialchars($editNews['description']) : "" ?></textarea>
+        </fieldset>
+
+    <!-- <button type="button" id="a ddEdit" >Modifier le Plat</button> -->
+    
+    <button type="button" id="formButton" ><?= isset($_GET['id']) ? "Modifier" : "Ajouter" ?></button>
+    <button type="button" id="cancelFormButton" >Annuler</button>
+    
+    </form>

@@ -1,0 +1,16 @@
+<section class="admin">
+	<h1>Connexion</h1>
+	<form method="post">
+		<p>
+			<label for='email'>Email</label>
+			<input type="text" name="email" id="email">
+		</p>
+		<p>
+			<label for='pw'>Mot de passe</label>
+			<input type="password" name="pw" id="pw">
+		</p>
+		<button id="adminform">Se connecter</button>
+		<!--<a href="index.php?page=inscription">S'inscrire ?</a>-->
+		<p class="error"><?= $this-> message ?></p>
+	</form>
+</section>

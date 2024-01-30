@@ -1,0 +1,15 @@
+<section class="album">
+    <div class="presentation">
+        <img src="<?= htmlspecialchars($album['src']) ?>" alt="<?= htmlspecialchars($album['alt']) ?>">
+        <div class="infos">
+            <a href="index.php?page=artist&id=<?= htmlspecialchars($album['id_artist']) ?>">
+                <h2><?= htmlspecialchars($album['name']) ?></h2>
+            </a>
+            <h3><?= htmlspecialchars($album['title']) ?></h3>
+            <p><?= htmlspecialchars($album['date']) ?></p>
+        </div>
+    </div>
+    <article>
+        <p><?= htmlspecialchars($album['description']) ?></p>
+    </article>
+</section>

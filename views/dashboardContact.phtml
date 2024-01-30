@@ -1,0 +1,25 @@
+<h1>Gestion des messages de contact</h1>
+<!-- Tableau de présentation -->
+<table id="dashboardTable">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Sujet</th>
+            <th>Message</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($messages as $message): ?>
+            <tr>
+                <td> <?= htmlspecialchars($message['name']) ?> </td>
+                <td> <?= htmlspecialchars($message['email']) ?> </td>
+                <td> <?= htmlspecialchars($message['subject']) ?> </td>
+                <td> <?= htmlspecialchars($message['message']) ?> </td>
+
+                <td><button type ="button" class ="delete" data-id="<?= $message['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

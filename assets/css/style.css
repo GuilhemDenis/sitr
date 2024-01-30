@@ -1,0 +1,760 @@
+/* Polices */
+@font-face {
+    font-family: "Myriad Pro";
+    src: url(../fonts/MYRIADPRO-REGULAR.woff);
+}
+@import url('http://fonts.cdnfonts.com/css/milocha');
+
+/*****************************/
+/************ VAR ************/
+/*****************************/
+:root {
+	--font-text: "Myriad Pro";
+	--font-title: 'Milocha', sans-serif;
+	--size-text: 1.5rem;
+	--size-title-1: 3.6rem;
+	--size-title-2: 3rem;
+	--size-title-3: 2.4rem;
+	--line-height: 2.0rem;
+	--color-body:#D5EBFA;
+    --color-body2:#BBD2E0;
+	--color-title:#D81F25;
+    --color-figcaption:rgba(76,67,67,.9);
+	--color-text:black;
+	--color-link: ;
+	--color-link-hover:;
+}
+
+/*****************************/
+/******* GENERALITES *******/
+/*****************************/
+
+/* Box sizing */
+* {
+	box-sizing: border-box;
+}
+
+/* 1rem = 10px */
+html {
+	font-size: 62.5%;
+}
+
+/* Images */
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* Body */
+body {
+    font-size: var(--size-text);
+    font-family: var(--font-text);
+    background-color: var(--color-body);
+    margin:0;
+    line-height:2.5rem;
+}
+
+h1, h2 {
+    font-family: var(--font-title);
+    color: var(--color-title);
+    margin-left: 6rem;
+}
+h1 {
+    font-size:var(--size-title-1);
+}
+h2 {
+    font-size:var(--size-title-2);
+}
+h3 {
+    font-size:var(--size-title-3);
+    font-family: var(--font-title);
+}
+
+/******************************/
+/******* LAYOUT ***********/
+/*****************************/
+/*Header*/
+header .logo .burger {
+    opacity : 0.8;
+    position : fixed; 
+    top : 4rem;
+    left : 2rem;
+    font-size:3rem;
+    z-index: 2;
+}
+header form {
+    width:80%;
+    margin:auto;
+}
+
+header form input {
+    width : 75%;
+    padding:0.5rem;
+}
+header form button {
+    padding:0.5rem;
+}
+
+header .cart {
+    position : absolute; 
+    top : 4rem;
+    right : 2rem;
+    font-size:3rem;
+    z-index: 4;
+}
+
+/* Nav */
+header nav {
+    position : fixed;
+    top:0;
+    width : 85%;
+    height: 100vh;
+    background-color:rgba(0,0,0);
+    margin-left:-85%;
+    z-index: 1;
+}
+header nav ul {
+    display : flex;
+    flex-direction: column;
+}
+header nav ul li {
+    list-style: none;
+    padding:0.5rem;
+    margin-top:4rem;
+}
+header nav ul li a:hover {
+    color:var(--color-title);
+}
+header nav ul a {
+    text-decoration: none;
+    color: #fff;
+    font-size:var(--size-title-3);
+    margin-left:25%;
+}
+/* classes pour gérer la transition à l'apparition et disparition de la nav en mode mobile */
+.showTransition {
+    transform : translate(100%);
+    transition-duration: 1s;
+}
+.hideTransition {
+    transform : translate(-100%);
+    transition-duration: 2s;
+}
+
+/*Footer*/
+footer {
+    display:flex;
+    justify-content: center;
+    padding : 2rem;
+    margin-top:3rem;
+}
+footer .fab {
+    font-size:3rem;
+    margin : 0 1rem;
+}
+footer a {
+    text-decoration : none;
+    color : var(--color-title);
+}
+
+/******************************/
+/******* PANIER ***********/
+/*****************************/
+
+.panier {
+    position : absolute;
+    top:0;
+    right:0;
+    width : 100%;
+    min-height: 100vh;
+    background-color:var(--color-body2);
+    margin-right:-100%;
+    z-index: 3;
+}
+
+.shoppingCart {
+    margin-top: 5rem;
+}
+
+.shoppingCart .productsInCart .product{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom : 0.1rem solid black;
+}
+
+
+.shoppingCart .productsInCart .productImage{
+    width : 25%;
+}
+
+.shoppingCart .productsInCart .infos {
+    width : 65%;
+}
+
+.shoppingCart .productsInCart .infos p {
+    text-align: center;
+    font-size:var(--size-title-3);
+}
+
+.shoppingCart .productsInCart .infos i {
+    margin-left:1rem;
+}
+
+.shoppingCart .productsInCart .total {
+    display:flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.shoppingCart .productsInCart .total h3 {
+    margin: 0 3rem;
+    font-size:var(--size-title-1);;
+}
+
+.shoppingCart .checkoutButton {
+    display: flex;
+    justify-content: end;
+}
+
+.shoppingCart .checkoutButton button {
+    padding : 1.5rem 3rem;
+    text-align: center;
+    margin: 0 3rem 2rem 0;
+}
+
+
+
+/* classes pour gérer la transition */
+.showCartTransition {
+    transform : translate(-100%);
+    transition-duration: 1s;
+}
+.hideCartTransition {
+    transform : translate(100%);
+    transition-duration: 2s;
+}
+
+
+
+/******************************/
+/************* HOME ***********/
+/*****************************/
+
+/* Section Dernières Sortie */
+.albums {
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.albums img:hover {
+    opacity:0.6;
+}
+
+.albums figure {
+    position : relative;
+    width:75%;
+    margin:1.5rem auto;
+}
+
+.albums figcaption {
+    position: absolute;
+	left: 0;
+	bottom: 0.8rem;
+    padding : 1rem;
+	opacity: 1;
+	background-color: var(--color-figcaption);
+	color: white;
+    font-size:var(--size-text) ;
+	transition: .7s all;
+}
+
+/* Section Dernières News */
+.news {
+    display :flex;
+    flex-wrap:wrap;
+}
+.news article {
+    padding : 2rem;
+}
+.news article h3, .news article p {
+    margin-left: 4rem;
+}
+
+/******************************/
+/*********** SEARCH ***********/
+/*****************************/
+.search h3, .search p {
+    text-align: center;
+}
+
+
+
+
+/*******************************/
+/********* ARTISTES ************/
+/******************************/
+.artists {
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.artists img:hover {
+    opacity:0.6;
+}
+
+.artists figure {
+    position : relative;
+    width:79%;
+    margin:1.5rem auto;
+}
+
+.artists figcaption {
+    position: absolute;
+	left: 0;
+	bottom: 0.8rem;
+    padding : 1rem;
+	opacity: 1;
+	background-color: var(--color-figcaption);
+	color: white;
+    font-size:var(--size-text) ;
+	transition: .7s all;
+}
+
+/********************************/
+/********* ALBUM PAGE ************/
+/********************************/
+
+.album img {
+    width: 80%;
+}
+
+.album .presentation {
+    
+    text-align: center;
+
+}
+.album .presentation h2, .album .presentation h3, .album .presentation p {
+    margin:1rem 0;
+}
+
+.album .presentation a {
+    text-decoration: none;
+}
+.album article {
+    width : 80%;
+    margin:auto;
+}
+
+
+/********************************/
+/********* ARTIST PAGE ************/
+/********************************/
+.artist h2, h3 {
+    margin:1rem 0;
+    text-align: center;
+}
+
+.artist .presentation {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+.artist .presentation img {
+    width : 80%;
+}
+
+.artist .presentation .infos p {
+    width : 80%;
+    margin:2rem auto;
+}
+
+.artist .albums {
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.artist .albums .disque {
+   width : 80%;
+}
+
+.artist .albums .disque .infos {
+    text-align: center;
+}
+
+
+/********************************/
+/********* CONTACT ************/
+/********************************/
+.contact form {
+    text-align: center;
+    width:80%;
+    margin:auto;
+}
+
+.contact form p {
+    display:flex;
+    justify-content: space-between;
+}
+
+.contact form input {
+    width : 60%;
+}
+
+.contact form textarea {
+    width : 60%;
+    height : 30rem;;
+}
+
+/********************************/
+/********* ADMIN ************/
+/********************************/
+.admin form {
+    text-align: center;
+    width:80%;
+    margin:auto;
+}
+
+.admin form p {
+    display:flex;
+    justify-content: space-between;
+}
+
+/********************************/
+/********* SHOP ************/
+/********************************/
+
+.allproducts .sorting {
+    display:flex;
+    margin:3rem;
+}
+
+.allproducts .products {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.allproducts .products {
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.allproducts .products img:hover {
+    opacity:0.6;
+}
+
+.allproducts .products figure {
+    position : relative;
+    width:79%;
+    margin:1.5rem auto;
+}
+
+.allproducts .products figcaption {
+    position: absolute;
+	left: 0;
+	bottom: 0.8rem;
+    padding : 1rem;
+	opacity: 1;
+	background-color: var(--color-figcaption);
+	color: white;
+    font-size:var(--size-text) ;
+	transition: .7s all;
+}
+
+.allproducts .sorting p {
+    padding : 1rem 2rem ;
+    margin : 0 1rem;
+    background-color: lightgray;
+}
+
+.allproducts .sorting p:hover {
+    background-color: var(--color-body2);
+    cursor:pointer;
+}
+
+/********************************/
+/********* PRODUCT ************/
+/********************************/
+.product {
+    width : 90%;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.product .infos h2 {
+    margin:0;
+}
+
+.product .productImages img {
+    margin : 2rem 0;
+}
+
+
+/********************************************/
+/******************* RESPONSIVE ***********/
+/*********************************************/
+
+/******* Pour les tablettes *******/
+@media screen and (min-width:720px) and (max-width:1200px){
+        /*Header */
+        header .logo {
+            width:80%;
+            margin:auto;
+        }
+    
+        /*Nav*/
+    
+        header nav {
+            display : flex;
+            position : relative;
+            justify-content: space-between;
+            width:100%;
+            margin : 0;
+            height:auto;
+            background-color:var(--color-body2);
+        }
+        
+        header nav ul {
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding:0;
+            width:79%;
+        }
+        
+        header nav ul a {
+            color: black;
+            margin:0;
+        }
+
+        header nav ul li {
+            margin:0;
+        }
+        
+        header .fa-bars {
+            display:none;
+        }
+
+        header form {
+            width : 20%;
+        }
+
+        /* Panier */
+
+        .panier {
+            width : 50%;
+            margin-right:-50%;
+        }
+    
+        /*Page Accueil*/
+    
+        .albums figure{
+            width : 44%;
+        }
+        .search .news {
+            display:flex;
+            justify-content: center;
+        }
+        .news article {
+            width : 40%;
+            background-color: #fff;
+        }
+    
+        /*Page Artistes*/
+        .artists figure {
+            width : 30%;
+        }
+
+        /*Page Shop*/
+        .allproducts .products figure {
+            width : 30%;
+        }
+    
+        /* Page Album */
+        
+        .album .presentation {
+            width : 80%;
+            margin:auto;
+            display : flex;
+            justify-content: space-between;
+        }
+        .album .presentation img {
+            width : 40%
+        }
+        
+        .album .presentation .infos {
+            width : 55%;
+            display : flex;
+            flex-direction: column;
+        }
+
+        .album .presentation .infos h2, .album .presentation .infos h3, .album .presentation .infos p {
+            text-align: left;
+        }
+
+        /* Page Artiste */
+
+        .artist .albums .disque {
+            width : 40%;
+         }
+
+        /* Page Contact */
+
+        .contact form {
+            width:70%;
+        }
+        .contact form input, .contact form textarea {
+            width:80%;
+        }
+
+        /* Page Admin */
+        .admin form {
+            width:40%;
+        }
+}
+
+/******* Pour les desktop *******/
+@media screen and (min-width:1200px){
+    .container {
+        width:70%;
+        margin:auto;
+    }
+
+
+    /*Header */
+    header .logo {
+        width:40%;
+        margin:auto;
+    }
+    
+    /*Nav*/
+    
+    header nav {
+        display : flex;
+        position : relative;
+        justify-content: space-between;
+        width:70%;
+        margin : 0 auto 3rem auto;
+        height:auto;
+        background-color: var(--color-body2);
+        }
+    
+    header nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding:0;
+        width:79%;
+    }
+    
+    header nav ul a {
+        color: black;
+        margin:0;
+    }
+
+    
+
+    header nav ul li {
+        margin:0;
+    }
+    
+    header .fa-bars {
+        display:none;
+    }
+
+    header form {
+        width : 20%;
+    }
+
+
+     /* Panier */
+
+     .panier {
+        width : 30%;
+        margin-right:-30%;
+    }
+
+    /*Page Accueil*/
+    
+    .albums figure{
+        width : 22%;
+    }
+    .search .news {
+        display:flex;
+        justify-content: center;
+    }
+    .news article {
+        width : 40%;
+        background-color: #fff;
+    }
+
+    /*Page Artistes*/
+    .artists figure {
+        width : 30%;
+    }
+
+    /*Page Shop*/
+    .allproducts .products figure {
+        width : 30%;
+    }
+
+    /* Page Album */
+        
+    .album .presentation {
+        width : 100%;
+        margin:auto;
+        display : flex;
+        justify-content: space-between;
+    }
+    .album .presentation img {
+        width : 40%
+    }
+    
+    .album .presentation .infos {
+        width : 55%;
+        display : flex;
+        flex-direction: column;
+    }
+
+    .album .presentation .infos h2, .album .presentation .infos h3, .album .presentation .infos p {
+        text-align: left;
+    }
+
+    .album article {
+        width:100%;
+    }
+
+    /* Page Artiste */
+
+    .artist .albums .disque {
+        width : 20%;
+     }
+
+     /* Page Contact */
+
+    .contact form {
+        width:50%;
+    }
+    .contact form input, .contact form textarea {
+        width:80%;
+    }
+
+    /* Page Admin */
+    .admin form {
+        width:20%;
+    }
+
+    /* Page Product */
+    .product .presentation {
+        display:flex;
+        justify-content: space-between;
+    }
+    .product .infos {
+        width:40%;
+        padding-top:3rem;
+    }
+    .product .productImages {
+        width : 50%;
+    }
+}

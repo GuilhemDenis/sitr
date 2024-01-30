@@ -1,0 +1,22 @@
+<section class="allproducts">
+    <h1>Shop</h1>
+    <div class="sorting">
+        <p id="sortByAll">Tous les produits</p>
+        <p id="sortByCD">CD</p>
+        <p id="sortByTapes">Cassettes</p>
+        <p id="sortByVinyls">Vinyles</p>
+        <p id="sortByClothes">Vêtements</p>
+    </div>
+    <div class="products">
+        <?php foreach($allProducts as $product): ?>
+            <figure>
+                <a href="index.php?page=product&id=<?= htmlspecialchars($product['id']) ?>">
+                    <img src="<?= htmlspecialchars($product['src']) ?>" alt="<?= htmlspecialchars($product['alt']) ?>">
+                    <figcaption>
+                        <?= htmlspecialchars($product['name']) ?>
+                    </figcaption>
+                </a>
+            </figure>
+        <?php endforeach; ?>
+    </div>
+</section>

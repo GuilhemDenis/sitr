@@ -1,0 +1,22 @@
+<section class="artist">
+    <div class="presentation">
+        <img src="<?= htmlspecialchars($artist['src']) ?>" alt="<?= htmlspecialchars($artist['alt']) ?>">
+        <div class="infos">
+            <h2><?= htmlspecialchars($artist['name']) ?></h2>
+            <p><?= htmlspecialchars($artist['description']) ?></p>
+        </div>
+    </div>
+    <h3>Albums parus chez Safe in the Rain</h3>
+    <div class="albums">
+        <?php foreach ($albumList as $album): ?>
+            <div class="disque">
+                <a href="index.php?page=album&id=<?= htmlspecialchars($album['id']) ?>"><img src="<?= htmlspecialchars($album['src']) ?>" alt="<?= htmlspecialchars($album['alt']) ?>"></a>
+                <div class="infos">
+                    <h3><?= htmlspecialchars($album['title']) ?></h3>
+                    <p><?= htmlspecialchars($album['date']) ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    
+</section>

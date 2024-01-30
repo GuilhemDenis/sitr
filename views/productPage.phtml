@@ -1,0 +1,15 @@
+<section class="product">
+    <div class="presentation">
+        <div class="infos">
+                <h2><?= htmlspecialchars($product['name']) ?></h2>
+                <h3><?= htmlspecialchars($product['price']) ?> €</h3>
+                <p><?= htmlspecialchars($product['description']) ?></p>
+                <button id="addToCart" data-id="<?= $product['id'] ?>" data-name="<?= htmlspecialchars($product['name']) ?>" data-price="<?= htmlspecialchars($product['price']) ?>">Ajouter au panier</button>
+        </div>
+        <div class="productImages">
+            <img src="<?= htmlspecialchars($product['src']) ?>" alt="<?= htmlspecialchars($product['alt']) ?>">
+            <img src="<?= htmlspecialchars($product['src2']) ?>" alt="<?= htmlspecialchars($product['alt2']) ?>">
+            <img src="<?= htmlspecialchars($product['src3']) ?>" alt="<?= htmlspecialchars($product['alt3']) ?>">
+        </div>  
+    </div>
+</section>

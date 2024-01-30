@@ -1,0 +1,68 @@
+<!-- Tableau de présentation -->
+<h1>Gestion des Artistes</h1>
+<!-- Bouton pour ajouter une ligne au tableau -->
+<button type="button" id="newEntry" >Ajouter un artiste</button>
+<table id="dashboardTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($artistsTable as $artist): ?>
+                <tr>
+                    <td> <?= htmlspecialchars($artist['name']) ?> </td>
+                    <td> <?= htmlspecialchars($artist['description']) ?> </td>
+                    <td> <img src="<?= htmlspecialchars($artist['src'])?>" alt ="<?= htmlspecialchars($artist['alt'])?>"> </td>
+                    <td><button class="edit" data-id="<?= $artist['id'] ?>" ><i class="fas fa-pen-nib"></i></button>
+                    </td>
+        	        <td><button type ="button" class ="delete" data-id="<?= $artist['id'] ?>"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+</table>
+
+
+
+<!-- Formulaire pour ajouter ou modifier-->
+
+<form class="hide" id="form" data-edit="" method="post" enctype="multipart/form-data">
+    <fieldset>
+        <legend><h2><?= isset($_GET['id']) ? "Modifier la fiche artiste" : "Ajouter un artiste" ?></h2></legend>
+        <div class="hide">
+            <label for="id">ID</label>
+            <input type="text" name ="id" value ="<?= isset($_GET['id']) ? htmlspecialchars($editArtist['id'] ) : "" ?>">
+        </div>
+        <p>
+            <label for="name">Nom : </label>
+            <input name ="name" id="name" type="text" value ="<?= isset($_GET['id']) ?  htmlspecialchars($editArtist['name']) : "" ?>">
+        </p>
+
+        <p>
+            <label for="image">Image : </label>
+            <input type="file" id="image" name="image">
+                <img src="<?= isset($_GET['id']) ? htmlspecialchars($editArtist['src']) : "" ?>" alt ="<?= isset($_GET['id']) ? htmlspecialchars($editArtist['alt']) : "" ?>">
+        </p>
+
+        <p>
+            <label for="alt">Description de l'image : </label>
+            <input id="alt" name ="alt" type="text" value ="<?= isset($_GET['id']) ? htmlspecialchars($editArtist['alt']) : "" ?>">
+        </p>
+
+        <p>
+            <label for="text">Texte de présentation: </label>
+        </p>
+            <textarea id="text" name="text" rows="30" cols="70"><?= (isset($_GET['id'])) ? htmlspecialchars($editArtist['description']) : "" ?></textarea>
+       
+    </fieldset>
+
+<!-- <button type="button" id="a ddEdit" >Modifier le Plat</button> -->
+
+<button type="button" id="formButton" ><?= isset($_GET['id']) ? "Modifier" : "Ajouter" ?></button>
+<button type="button" id="cancelFormButton" >Annuler</button>
+
+</form>

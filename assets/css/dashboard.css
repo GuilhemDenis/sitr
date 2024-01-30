@@ -1,0 +1,180 @@
+:root {
+	--font-text: 'Open Sans', sans-serif;
+	--font-title: 'Raleway', sans-serif;
+	--size-text: 1.5rem;
+	--size-title-1: 3.6rem;
+	--size-title-2: 3.6rem;
+	--size-title-3: 2.4rem;
+	--line-height: 2.0rem;
+	--color-body:#fff;
+	--color-nav:#dedede;
+	--color-title:;
+	--color-text:black;
+	--color-link: ;
+	--color-link-hover:;
+}
+
+/*******************************************************/
+/******************** GENERALITES **********************/
+/*******************************************************/
+
+/* Box sizing */
+* {
+	box-sizing: border-box;
+}
+
+/* 1rem = 10px */
+html {
+	font-size: 62.5%;
+}
+
+/* Images */
+img {
+	width: 100%;
+	height: auto;
+}
+
+/* Body */
+body {
+    font-size: var(--size-text);
+    background-color: var(--color-body);
+    font-family: var(--font-text);
+    margin:0;
+}
+
+/* Classe hide*/
+.hide {
+    display:none;
+}
+
+
+
+/*********************************************************/
+/*************************** LAYOUT ***********************/
+/***********************************************************/
+.management {
+    display : flex;
+}
+
+/********************* Navigation aside ********************/
+
+.management nav {
+    display:fixed;
+    width : 15%;
+    height: 100vh;
+    background-color: var(--color-nav);
+}
+
+.management nav ul {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0;
+}
+
+.management nav ul li{
+    list-style:none;
+    width:18rem;
+    padding: 1rem;
+    background-color: var(--color-body);
+    border:1px solid LightGray;
+}
+.management nav ul li:hover{
+    background-color:LightGray;
+}
+
+.management nav ul a{
+    text-decoration: none;
+    color: var(--color-text);
+    margin : 1rem 0.5rem;
+}
+
+.management nav ul i{
+    margin : 0 0.5rem;
+}
+
+/************************** Section principale *********************/
+.dashboard {
+    text-align: center;
+    width:85%;
+}
+
+.dashboard h1 {
+    font-size:var(--size-title-1)
+}
+
+.dashboard .presentation {
+    width : 85%;
+}
+
+.dashboard .presentation img {
+    width:50%;
+}
+
+
+
+
+/************************** Tableau *********************/
+
+.dashboard table {
+    text-align: center;
+    width:90%;
+    margin :auto;
+    border-collapse:collapse;
+    margin-bottom:3em;
+}
+
+.dashboard table thead {
+    border : 0.2rem solid var(--color-nav);
+}
+
+.dashboard td {
+    padding:0.5em 2em;
+    border : 0.2rem solid var(--color-nav);
+}
+.dashboard th {
+    padding:0.5em 2em;
+
+}
+.dashboard tr:nth-child(even) {
+    background-color: #D3D3D3;
+}
+
+.dashboard button {
+    padding : 0.3rem;
+    border-radius:0.5rem;
+    text-align: center;
+    margin: 2rem 0;
+}
+.dashboard table a {
+    text-decoration:none;
+}
+
+.dashboard table img {
+    width:50%;
+}
+
+
+/************************** Formulaire ***********************/
+.dashboard form img {
+    width : 20%;
+}
+
+.dashboard form {
+    margin-left:5rem;
+
+}
+
+.dashboard form p {
+    display : flex;
+    justify-content: space-between;
+    
+}
+
+.dashboard form p label {
+    font-weight: bold;
+}
+
+.dashboard form p input {
+    width:40rem;
+}

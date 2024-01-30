@@ -1,0 +1,31 @@
+<section class="shoppingCart">
+    <h2>PANIER</h2>
+
+    <div class="productsInCart">
+        <?php if($shoppingCart != null): ?>
+            <?php foreach($shoppingCart as $product): ?>
+                <div class="product">
+                    <div class="productImage">
+                        <img src="<?= htmlspecialchars($product['src']) ?>" alt="<?= htmlspecialchars($product['alt']) ?>">
+                    </div>
+                    <div class="infos">
+                        <h3><?= htmlspecialchars($product['name']) ?> (x<?= htmlspecialchars($product['nb']) ?>)</h3>
+                        <p>
+                            <?= htmlspecialchars($product['price']) * htmlspecialchars($product['nb']) ?>€
+                            <i class="fas fa-times-circle" data-id="<?= htmlspecialchars($product['id']) ?>"></i>
+                        </p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <div class="total">
+                <h2>Total :</h2>
+                <h3><?= htmlspecialchars($this->totalCost) ?>€</h3>
+            </div>
+        <?php else: ?>
+            <h3>Votre panier est vide.</h3>
+        <?php endif; ?>
+    </div>
+    <div class="checkoutButton">
+        <button>Checkout</button>
+    </div>
+<section>

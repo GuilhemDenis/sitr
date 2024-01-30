@@ -1,0 +1,15 @@
+<section class="allalbums">
+    <h2>Catalogue</h2>
+    <div class="albums">
+        <?php foreach($allAlbums as $album): ?>
+            <figure>
+                <a href="index.php?page=album&id=<?= htmlspecialchars($album['id']) ?>">
+                    <img src="<?= htmlspecialchars($album['src']) ?>" alt="<?= htmlspecialchars($album['alt']) ?>">
+                    <figcaption>
+                        <?= htmlspecialchars($album['name']) ?> - <?= htmlspecialchars($album['title']) ?>
+                    </figcaption>
+                </a>
+            </figure>
+        <?php endforeach; ?>  
+    </div>
+</section>

@@ -1,0 +1,60 @@
+<section class="search">
+    <section class="artistsSearch">
+        <h3>Artistes</h3>
+        <?php if (!empty($searchArtists)): ?>
+            <div class="artists">
+                <?php foreach($searchArtists as $artist): ?>
+                    <figure>
+                        <a href="index.php?page=artist&id=<?= htmlspecialchars($artist['id']) ?>">
+                            <img src="<?= htmlspecialchars($artist['src']) ?>" alt="<?= htmlspecialchars($artist['alt']) ?>">
+                            <figcaption>
+                            <?= htmlspecialchars($artist['name']) ?>
+                            </figcaption>
+                        </a>
+                    </figure>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p>Aucun artiste ne correspond à votre recherche.</p>
+        <?php endif; ?>
+    </section>
+
+
+    <section class="albumsSearch">
+        <h3>Albums</h3>
+        <?php if (!empty($searchAlbums)): ?>
+            <div class="albums">
+            <?php foreach($searchAlbums as $album): ?>
+                <figure>
+                    <a href="index.php?page=album&id=<?= htmlspecialchars($album['id']) ?>">
+                        <img src="<?= htmlspecialchars($album['src']) ?>" alt="<?= htmlspecialchars($album['alt']) ?>">
+                        <figcaption>
+                            <?= htmlspecialchars($album['name']) ?> - <?= htmlspecialchars($album['title']) ?>
+                        </figcaption>
+                    </a>
+                </figure>
+            <?php endforeach; ?>  
+        </div>
+        <?php else: ?>
+            <p>Aucun album ne correspond à votre recherche.</p>
+        <?php endif; ?>
+    </section>
+
+    <section class="newsSearch">
+        <h3>News</h3>
+        <?php if (!empty($searchNews)): ?>
+            <div class="news">
+                <?php foreach($searchNews as $news): ?>
+                    <article>
+                        <h3><?= htmlspecialchars($news['title']) ?></h3>
+                        <p> Publié le <?= htmlspecialchars($news['date']) ?></p>
+                        <img src="<?= htmlspecialchars($news['src']) ?>" alt="<?= htmlspecialchars($news['alt']) ?>">
+                        <p><?= htmlspecialchars($news['description']) ?></p>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p>Aucune news ne correspond à votre recherche.</p>
+        <?php endif; ?>
+    </section>
+</section>
